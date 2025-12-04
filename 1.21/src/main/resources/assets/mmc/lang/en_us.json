@@ -1,4 +1,4 @@
 {
-    "text.mmc.config.unknown.mod": "Unknown mod",
-    "text.mmc.config.unknown.config": "Unknown config"
+    "text.mmc.config.unknown.mod": "Unknown mod id. Check again that id is correct.",
+    "text.mmc.config.unknown.config": "Specified mod hasn't config in Mod Menu."
 }
