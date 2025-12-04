@@ -6,3 +6,4 @@ pluginManagement {
         gradlePluginPortal()
     }
 }
+include(":1.21")
