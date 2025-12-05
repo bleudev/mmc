@@ -5,7 +5,10 @@
 [![GitHub commit activity](https://img.shields.io/github/commit-activity/w/bleudev/mmc)](https://github.com/bleudev/mmc/activity)
 [![GitHub last commit](https://img.shields.io/github/last-commit/bleudev/mmc)](https://github.com/bleudev/mmc/activity)
 
-Simple mod which provides `/mods` and `/config` commands to open mods list or specific mod config.
+Simple mod which provides two new commands: `/mods` and `/config`
+
+- `/mods`: Open mod list
+- `/config <mod_id>`: Open config of specified mod
 
 #### Dependencies
 
