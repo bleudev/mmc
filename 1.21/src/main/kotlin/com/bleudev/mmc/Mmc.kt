@@ -1,5 +1,6 @@
 package com.bleudev.mmc
 
+import com.bleudev.mmc.custom.key.AbstractMmcKey
 import com.mojang.brigadier.arguments.StringArgumentType
 import com.terraformersmc.modmenu.ModMenu
 import com.terraformersmc.modmenu.gui.ModsScreen
@@ -11,13 +12,13 @@ import net.fabricmc.loader.api.FabricLoader
 import net.minecraft.network.chat.Component
 
 class Mmc : ClientModInitializer {
-    private var shouldModsBeOpened: Boolean = false
     private var configModId: String? = null
 
     private fun getAllMods(): List<String> = FabricLoader.getInstance().allMods.map { it.metadata.id }
     private fun getAllModsWithConfig(): List<String> = getAllMods().filter { ModMenu.hasConfigScreen(it) }
 
     override fun onInitializeClient() {
+        AbstractMmcKey.initializeKeys()
         ClientCommandRegistrationCallback.EVENT.register { dispatcher, _ ->
             dispatcher.register(ClientCommandManager
                 .literal("mods")
@@ -65,6 +66,8 @@ class Mmc : ClientModInitializer {
                 mc.setScreen(ModMenu.getConfigScreen(configModId, mc.screen))
                 configModId = null
             }
+
+            AbstractMmcKey.KEYS.forEach { it.tick(mc) }
         }
     }
 }
