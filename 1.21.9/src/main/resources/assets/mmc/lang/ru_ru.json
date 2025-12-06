@@ -1,0 +1,6 @@
+{
+    "text.mmc.config.unknown.mod": "Неизвестный мод. Проверьте правильность айди.",
+    "text.mmc.config.unknown.config": "Указанный мод не имеет конфига в Mod Menu.",
+    "key.category.mmc.general": "Mod Menu Command",
+    "key.mmc.open_mod_list": "Открыть меню модов"
+}

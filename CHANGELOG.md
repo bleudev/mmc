@@ -1,6 +1,7 @@
 # 1.1
 ## New features
-[+] Add keybind to open mod list
+[+] Add keybind to open mod list\
+[+] 1.21.9 port (because Mojang changed keybinding registration)
 
 ## Fixes
 [+] Upscale icon

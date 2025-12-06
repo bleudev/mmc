@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "id": "mmc",
+  "version": "${version}",
+  "name": "Mod Menu Command",
+  "description": "A mod which provides /mods and /config commands to open mods list or specific mod config",
+  "authors": [{
+    "name": "bleudev",
+    "contact": {
+      "homepage": "https://github.com/bleudev"
+    }
+  }],
+  "contact": {
+    "homepage": "https://github.com/bleudev/mmc",
+    "sources": "https://github.com/bleudev/mmc.git",
+    "issues": "https://github.com/bleudev/mmc/issues"
+  },
+  "license": "MIT",
+  "icon": "assets/mmc/icon.png",
+  "custom": {
+    "modmenu": {
+      "parent": "modmenu"
+    }
+  },
+
+  "environment": "client",
+  "entrypoints": {
+    "client": ["com.bleudev.mmc.Mmc"]
+  },
+  "mixins": [
+    "mmc.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric-language-kotlin": ">=${kotlin_loader_version}",
+    "fabric": "*",
+    "minecraft": ">=${minecraft_version} <${max_exc_version}"
+  }
+}
