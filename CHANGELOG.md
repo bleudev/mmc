@@ -4,7 +4,8 @@
 [+] 1.21.9 port (because Mojang changed keybinding registration)
 
 ## Fixes
-[+] Upscale icon
+[+] Upscale icon\
+[+] Update dependencies (add `modmenu` and set `fabric` version)
 
 # 1.0
 ## New features
