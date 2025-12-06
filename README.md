@@ -7,7 +7,7 @@
 
 Simple mod which provides two new commands: `/mods` and `/config`
 
-- `/mods`: Open mod list
+- `/mods`: Open mod list (or with keybind)
 - `/config <mod_id>`: Open config of specified mod
 
 #### Dependencies
