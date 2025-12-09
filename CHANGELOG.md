@@ -1,3 +1,7 @@
+# 1.1.1
+## Version updates
+- Minecraft: updated to 1.21.11 (tested with Mod Menu `17.0.0-alpha.1`)
+
 # 1.1
 ## New features
 [+] Add keybind to open mod list\
