@@ -6,7 +6,6 @@ plugins {
     id("fabric-loom") version "1.14-SNAPSHOT" apply false
     id("maven-publish")
     id("com.modrinth.minotaur") version "2.+" apply false
-    id("com.fizzpod.github-release") version "3.1.3"
 }
 
 repositories {
@@ -29,11 +28,3 @@ fun configure(v: String, maxExv: String) {
 
 configure("1.21", "1.21.9")
 configure("1.21.9", "1.21.12")
-
-githubRelease {
-    token = System.getenv("GITHUB_TOKEN")
-    repo = "bleudev/mmc"
-    tagName = gversion
-    releaseName = gversion
-    generateReleaseNotes = false
-}
