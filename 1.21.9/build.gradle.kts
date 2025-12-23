@@ -5,9 +5,11 @@ plugins {
     kotlin("jvm")
     id("fabric-loom")
     id("maven-publish")
+    id("com.modrinth.minotaur")
 }
 
 version = project.property("mod_version") as String
+val maxExcVersion = project.property("max_exc_version") as String
 group = project.property("maven_group") as String
 
 base {
@@ -54,7 +56,7 @@ dependencies {
 tasks.processResources {
     inputs.property("version", project.version)
     inputs.property("minecraft_version", project.property("minecraft_version"))
-    inputs.property("max_exc_version", project.property("max_exc_version"))
+    inputs.property("max_exc_version", maxExcVersion)
     inputs.property("loader_version", project.property("loader_version"))
     inputs.property("fabric_version", project.property("fabric_version"))
     inputs.property("modmenu_version", project.property("modmenu_version"))
@@ -63,7 +65,7 @@ tasks.processResources {
     filesMatching("fabric.mod.json") {
         expand("version" to project.version,
             "minecraft_version" to project.property("minecraft_version")!!,
-            "max_exc_version" to project.property("max_exc_version")!!,
+            "max_exc_version" to maxExcVersion,
             "loader_version" to project.property("loader_version")!!,
             "fabric_version" to project.property("fabric_version")!!,
             "modmenu_version" to project.property("modmenu_version")!!,
@@ -90,7 +92,23 @@ tasks.jar {
     }
 }
 
-// configure the maven publication
+modrinth {
+    token.set(System.getenv("MODRINTH_TOKEN"))
+    projectId.set("modmenuc")
+    versionNumber.set(project.version as String)
+    versionType.set("release")
+    uploadFile.set(tasks.remapJar)
+    additionalFiles.add(tasks.remapSourcesJar)
+    changelog.set(project.property("changelog") as String)
+    gameVersions.addAll("1.21.9", "1.21.10", "1.21.11")
+    loaders.add("fabric")
+    dependencies {
+        required.project("fabric-api")
+        required.project("modmenu")
+        required.project("fabric-language-kotlin")
+    }
+}
+
 publishing {
     publications {
         create<MavenPublication>("mavenJava") {
