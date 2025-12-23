@@ -1,6 +1,5 @@
 import java.nio.file.Files
 import java.nio.file.Path
-import kotlin.collections.ArrayList
 
 plugins {
     kotlin("jvm") version "2.3.0"
@@ -33,14 +32,8 @@ configure("1.21.9", "1.21.12")
 
 githubRelease {
     token = System.getenv("GITHUB_TOKEN")
+    repo = "bleudev/mmc"
     tagName = gversion
     releaseName = gversion
     generateReleaseNotes = false
-    releaseAssets = {
-        val res = ArrayList<Any>()
-        subprojects {
-            res.addAll(this.tasks.build.get().outputs.files)
-        }
-        res
-    }
 }
