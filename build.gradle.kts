@@ -1,7 +1,11 @@
 plugins {
-    kotlin("jvm") version "2.2.21"
-    id("fabric-loom") version "1.13.6" apply false
+    kotlin("jvm") version "2.3.0"
+    id("fabric-loom") version "1.14-SNAPSHOT" apply false
     id("maven-publish")
+}
+
+repositories {
+    mavenCentral()
 }
 
 fun configure(v: String, maxExv: String) {

@@ -27,9 +27,16 @@ java {
 
 
 repositories {
-    maven {
-        name = "Terraformers"
-        url = uri("https://maven.terraformersmc.com/")
+    exclusiveContent {
+        forRepository {
+            maven {
+                name = "Modrinth"
+                url = uri("https://api.modrinth.com/maven")
+            }
+        }
+        filter {
+            includeGroup("maven.modrinth")
+        }
     }
 }
 
@@ -41,7 +48,7 @@ dependencies {
     modImplementation("net.fabricmc:fabric-language-kotlin:${project.property("kotlin_loader_version")}")
 
     modImplementation("net.fabricmc.fabric-api:fabric-api:${project.property("fabric_version")}")
-    modImplementation("com.terraformersmc:modmenu:${project.property("modmenu_version")}")
+    modImplementation("maven.modrinth:modmenu:${project.property("modmenu_version")}")
 }
 
 tasks.processResources {
@@ -55,12 +62,12 @@ tasks.processResources {
 
     filesMatching("fabric.mod.json") {
         expand("version" to project.version,
-            "minecraft_version" to project.property("minecraft_version"),
-            "max_exc_version" to project.property("max_exc_version"),
-            "loader_version" to project.property("loader_version"),
-            "fabric_version" to project.property("fabric_version"),
-            "modmenu_version" to project.property("modmenu_version"),
-            "kotlin_loader_version" to project.property("kotlin_loader_version"))
+            "minecraft_version" to project.property("minecraft_version")!!,
+            "max_exc_version" to project.property("max_exc_version")!!,
+            "loader_version" to project.property("loader_version")!!,
+            "fabric_version" to project.property("fabric_version")!!,
+            "modmenu_version" to project.property("modmenu_version")!!,
+            "kotlin_loader_version" to project.property("kotlin_loader_version")!!)
     }
 }
 
