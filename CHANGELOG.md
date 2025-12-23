@@ -4,6 +4,9 @@
 - \[DEV] Loom: `1.14-SNAPSHOT`
 - \[DEV] Gradle: `9.2.0`
 
+## New features
+[+] Add keybind to open chat with /config command
+
 # 1.1.1
 ## Version updates
 - Minecraft: updated to 1.21.11 (tested with Mod Menu `17.0.0-alpha.1`)
