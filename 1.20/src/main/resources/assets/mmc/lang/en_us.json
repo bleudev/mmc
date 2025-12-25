@@ -1,0 +1,7 @@
+{
+    "text.mmc.config.unknown.mod": "Unknown mod id. Check again that id is correct.",
+    "text.mmc.config.unknown.config": "Specified mod hasn't config in Mod Menu.",
+    "key.categories.mmc.general": "Mod Menu Command",
+    "key.mmc.open_mod_list": "Open mod list",
+    "key.mmc.open_config_command": "Open chat with /config command"
+}
