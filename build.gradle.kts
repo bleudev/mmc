@@ -26,5 +26,6 @@ fun configure(v: String, maxExv: String) {
     }
 }
 
+configure("1.20", "1.21")
 configure("1.21", "1.21.9")
 configure("1.21.9", "1.21.12")
