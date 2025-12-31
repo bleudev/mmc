@@ -16,7 +16,7 @@ class Mmc : ClientModInitializer {
     private var configModId: String? = null
 
     private fun getAllMods(): List<String> = FabricLoader.getInstance().allMods.map { it.metadata.id }
-    private fun getAllModsWithConfig(): List<String> = getAllMods().filter { ModMenu.hasConfigScreen(it) }
+    private fun getAllModsWithConfig(): List<String> = getAllMods().filter { ModMenu.getConfigScreen(it, null) != null }
 
     override fun onInitializeClient() {
         AbstractMmcKey.initializeKeys()

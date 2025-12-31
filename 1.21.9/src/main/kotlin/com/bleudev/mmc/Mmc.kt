@@ -9,6 +9,7 @@ import net.fabricmc.fabric.api.client.command.v2.ClientCommandManager
 import net.fabricmc.fabric.api.client.command.v2.ClientCommandRegistrationCallback
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents
 import net.fabricmc.loader.api.FabricLoader
+import net.minecraft.ChatFormatting
 import net.minecraft.network.chat.Component
 import net.minecraft.resources.ResourceLocation
 
@@ -51,7 +52,7 @@ class Mmc : ClientModInitializer {
                             if (modid in getAllMods())
                                 txt = Component.translatable("text.mmc.config.unknown.config")
                             else txt = Component.translatable("text.mmc.config.unknown.mod")
-                            ctx.source.sendFeedback(txt.withColor(0xff0000))
+                            ctx.source.sendFeedback(txt.withStyle(ChatFormatting.RED))
                         }
                         1
                     }

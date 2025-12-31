@@ -20,6 +20,7 @@ abstract class AbstractMmcKey {
         val KEYS: MutableList<AbstractMmcKey> = ArrayList<AbstractMmcKey>()
         fun initializeKeys() {
             KEYS.add(OpenModListKey())
+            KEYS.add(OpenConfigCommandKey())
         }
     }
 }

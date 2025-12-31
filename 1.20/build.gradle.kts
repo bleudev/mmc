@@ -16,7 +16,7 @@ base {
     archivesName.set(project.property("archives_base_name") as String)
 }
 
-val targetJavaVersion = 21
+val targetJavaVersion = 17
 java {
     toolchain.languageVersion = JavaLanguageVersion.of(targetJavaVersion)
     // Loom will automatically attach sourcesJar to a RemapSourcesJar task and to the "build" task
@@ -100,7 +100,7 @@ modrinth {
     uploadFile.set(tasks.remapJar)
     additionalFiles.add(tasks.remapSourcesJar)
     changelog.set(project.property("changelog") as String)
-    gameVersions.addAll("1.21.9", "1.21.10", "1.21.11")
+    gameVersions.addAll("1.20", "1.20.1", "1.20.2", "1.20.3", "1.20.4", "1.20.5", "1.20.6")
     loaders.add("fabric")
     dependencies {
         required.project("fabric-api")
@@ -109,6 +109,7 @@ modrinth {
     }
 }
 
+// configure the maven publication
 publishing {
     publications {
         create<MavenPublication>("mavenJava") {
