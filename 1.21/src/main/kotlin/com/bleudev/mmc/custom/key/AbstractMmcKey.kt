@@ -13,7 +13,7 @@ abstract class AbstractMmcKey {
     }
 
     companion object {
-        protected const val CATEGORY_GENERAL: String = "key.categories.mmc.general"
+        protected const val CATEGORY_GENERAL: String = "key.category.mmc.general"
 
         val KEYS: MutableList<AbstractMmcKey> = ArrayList<AbstractMmcKey>()
         fun initializeKeys() {
