@@ -4,6 +4,13 @@
 # https://docs.github.com/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file
 
 version: 2
+registries:
+  maven-fabric:
+    type: maven-repository
+    url: https://maven.fabricmc.net/
+  maven-modrinth:
+    type: maven-repository
+    url: https://api.modrinth.com/maven
 updates:
   - package-ecosystem: "gradle" # See documentation for possible values
     directory: "/" # Location of package manifests
