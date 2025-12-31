@@ -11,9 +11,16 @@ registries:
   maven-modrinth:
     type: maven-repository
     url: https://api.modrinth.com/maven
+  maven-central:
+    type: maven-repository
+    url: https://repo.maven.apache.org/maven2
 updates:
   - package-ecosystem: "gradle" # See documentation for possible values
-    registries: "*"
+    registries:
+      - maven-fabric
+      - maven-modrinth
+      - maven-central
+    versioning-strategy: increase
     directory: "/" # Location of package manifests
     schedule:
       interval: "weekly"
