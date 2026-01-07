@@ -3,7 +3,7 @@ import java.nio.file.Path
 
 plugins {
     kotlin("jvm") version "2.3.0"
-    id("fabric-loom") version "1.14-SNAPSHOT" apply false
+    id("fabric-loom") version "1.14.10" apply false
     id("maven-publish")
     id("com.modrinth.minotaur") version "2.+" apply false
 }
