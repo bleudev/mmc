@@ -9,3 +9,4 @@ pluginManagement {
 include(":1.20")
 include(":1.21")
 include(":1.21.9")
+include(":26.1")
