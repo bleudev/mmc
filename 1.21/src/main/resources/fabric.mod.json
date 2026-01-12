@@ -10,6 +10,12 @@
       "homepage": "https://github.com/bleudev"
     }
   }],
+  "contributors": [{
+    "name": "StarmanMine142",
+    "contact": {
+      "homepage": "https://github.com/StarmanMine142"
+    }
+  }],
   "contact": {
     "homepage": "https://github.com/bleudev/mmc",
     "sources": "https://github.com/bleudev/mmc.git",
