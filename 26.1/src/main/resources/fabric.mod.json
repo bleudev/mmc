@@ -17,7 +17,7 @@
     }
   }],
   "contact": {
-    "homepage": "https://github.com/bleudev/mmc",
+    "homepage": "https://modrinth.com/mod/modmenuc",
     "sources": "https://github.com/bleudev/mmc.git",
     "issues": "https://github.com/bleudev/mmc/issues"
   },
@@ -41,6 +41,6 @@
     "fabric-language-kotlin": ">=${kotlin_loader_version}",
     "fabric-api": ">=${fabric_version}",
     "modmenu": ">=${modmenu_version}",
-    "minecraft": ">=26.1-alpha.2"
+    "minecraft": ">=26.1-alpha.4"
   }
 }

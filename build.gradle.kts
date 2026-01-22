@@ -32,4 +32,4 @@ fun configure(v: String, maxExv: String, snapshot: Int = -1) {
 configure("1.20", "1.21")
 configure("1.21", "1.21.9")
 configure("1.21.9", "1.21.12")
-configure("26.1", "26.2", 2)
+configure("26.1", "26.2", 4)

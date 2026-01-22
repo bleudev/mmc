@@ -1,7 +1,5 @@
 ## Version updates
-- [+] Update for 26.1 snapshot 2 (unobfuscated)
-- [/] Bump `fabricloader` dependency to `0.18.4`
-- [/] \[DEV] Update to Gradle 9.2.1
+- [+] 26.1 snapshot 4 (mod menu 18.0.0-alpha.5)
 
 ## Miscellaneous
-- [+] Add StarmanMine142 to contributors
+- [/] Change homepage link (from GitHub repository to mod's Modrinth link)
