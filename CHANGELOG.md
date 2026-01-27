@@ -1,5 +1,2 @@
-## Version updates
-- [+] 26.1 snapshot 4 (mod menu 18.0.0-alpha.5)
-
-## Miscellaneous
-- [/] Change homepage link (from GitHub repository to mod's Modrinth link)
+## Version changes
+[+] Bump net.fabricmc.fabric-loom from 1.14.10 to 1.15.2 (dependabot [#8](github.com/bleudev/mmc/pull/8))
