@@ -76,6 +76,7 @@ class Mmc : ClientModInitializer {
                 mc.setScreen(ModsScreen(mc.screen))
             }
             configModId?.let {
+                lastModId = configModId
                 mc.setScreen(ModMenu.getConfigScreen(configModId, mc.screen))
                 configModId = null
             }

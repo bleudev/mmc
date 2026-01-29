@@ -1,5 +1,6 @@
 ## Bug fixes
-[/] Use of keybind which opens chat with `/config` command don't make suggestions appear (bleudev [#12](https://github.com/bleudev/mmc/pull/12))
+[/] Use of keybind which opens chat with `/config` command don't make suggestions appear (bleudev [#12](https://github.com/bleudev/mmc/pull/12))\
+[/] Fix memory doesn't work on 1.20-1.20.6. Now memory only saves if you use `/config` command, not mod menu opening. (bleudev)
 
 ## Small changes
 [+] Add modrinth and donate links to mod menu (bleudev)
