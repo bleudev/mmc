@@ -1,3 +1,6 @@
+## Bug fixes
+[/] Use of keybind which opens chat with `/config` command don't make suggestions appear
+
 ## Small changes
 [+] Add modrinth and donate links to mod menu
 
