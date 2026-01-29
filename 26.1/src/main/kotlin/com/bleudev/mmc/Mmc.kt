@@ -12,9 +12,13 @@ import net.fabricmc.loader.api.FabricLoader
 import net.minecraft.ChatFormatting
 import net.minecraft.network.chat.Component
 import net.minecraft.resources.Identifier
+import org.slf4j.Logger
+import org.slf4j.LoggerFactory
 
 const val MOD_ID = "mmc"
-fun getResourceLocation(path: String): Identifier = Identifier.fromNamespaceAndPath(MOD_ID, path)
+fun getIdentifier(path: String): Identifier = Identifier.fromNamespaceAndPath(MOD_ID, path)
+
+val LOGGER: Logger = LoggerFactory.getLogger("ModMenuCommand")
 
 class Mmc : ClientModInitializer {
     private var configModId: String? = null
@@ -24,6 +28,7 @@ class Mmc : ClientModInitializer {
 
     override fun onInitializeClient() {
         AbstractMmcKey.initializeKeys()
+        dataInit()
         ClientCommandRegistrationCallback.EVENT.register { dispatcher, _ ->
             dispatcher.register(ClientCommands
                 .literal("mods")
@@ -34,6 +39,14 @@ class Mmc : ClientModInitializer {
             )
             dispatcher.register(ClientCommands
                 .literal("config")
+                .executes { ctx ->
+                    if (lastModId == null) {
+                        ctx.source.sendError(Component.translatable("commands.mmc.config.error.last.null"))
+                        return@executes -1
+                    }
+                    configModId = lastModId
+                    1
+                }
                 .then(ClientCommands
                     .argument("modid", StringArgumentType.word())
                     .suggests { _, builder ->
@@ -48,10 +61,9 @@ class Mmc : ClientModInitializer {
                         if (modid in getAllModsWithConfig())
                             configModId = modid
                         else {
-                            val txt: Component
-                            if (modid in getAllMods())
-                                txt = Component.translatable("text.mmc.config.unknown.config")
-                            else txt = Component.translatable("text.mmc.config.unknown.mod")
+                            val txt = if (modid in getAllMods())
+                                Component.translatable("commands.mmc.config.error.unknown.config")
+                            else Component.translatable("commands.mmc.config.error.unknown.mod")
                             ctx.source.sendFeedback(txt.withStyle(ChatFormatting.RED))
                         }
                         1

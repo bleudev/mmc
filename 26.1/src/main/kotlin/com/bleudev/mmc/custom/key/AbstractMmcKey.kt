@@ -1,6 +1,6 @@
 package com.bleudev.mmc.custom.key
 
-import com.bleudev.mmc.getResourceLocation
+import com.bleudev.mmc.getIdentifier
 import net.minecraft.client.KeyMapping
 import net.minecraft.client.Minecraft
 
@@ -15,7 +15,7 @@ abstract class AbstractMmcKey {
 
     companion object {
         @JvmStatic
-        protected val CATEGORY_GENERAL: KeyMapping.Category = KeyMapping.Category.register(getResourceLocation("general"))
+        protected val CATEGORY_GENERAL: KeyMapping.Category = KeyMapping.Category.register(getIdentifier("general"))
 
         val KEYS: MutableList<AbstractMmcKey> = ArrayList<AbstractMmcKey>()
         fun initializeKeys() {

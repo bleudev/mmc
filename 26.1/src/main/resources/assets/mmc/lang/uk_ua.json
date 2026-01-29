@@ -1,6 +1,7 @@
 {
-    "text.mmc.config.unknown.mod": "Невідомий ID мода. Спробуйте знову якщо ID правильний.",
-    "text.mmc.config.unknown.config": "Цей мод не має налаштувань в Mod Menu.",
+    "commands.mmc.config.error.last.null": "Перед використанням пам'яті відкрийте конфіг хоча б одного моду",
+    "commands.mmc.config.error.unknown.mod": "Невідомий ID мода. Спробуйте знову якщо ID правильний.",
+    "commands.mmc.config.error.unknown.config": "Цей мод не має налаштувань в Mod Menu.",
     "key.category.mmc.general": "Mod Menu Command",
     "key.mmc.open_mod_list": "Відкрити список модів",
     "key.mmc.open_config_command": "Відкрити чат із командою /config",

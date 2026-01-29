@@ -1,11 +1,12 @@
 {
   "required": true,
   "minVersion": "0.8",
-  "package": "com.bleudev.mmc.mixin",
+  "package": "com.bleudev.mmc.mixin.client",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
   ],
   "client": [
+    "ModMenuMixin"
   ],
   "injectors": {
     "defaultRequire": 1

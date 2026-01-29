@@ -3,6 +3,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     kotlin("jvm")
+    kotlin("plugin.serialization")
     id("net.fabricmc.fabric-loom")
     id("maven-publish")
     id("com.modrinth.minotaur")
@@ -43,7 +44,8 @@ repositories {
 }
 
 dependencies {
-    // To change the versions see the gradle.properties file
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.9.0")
+
     minecraft("com.mojang:minecraft:${project.property("minecraft_version")}")
     implementation("net.fabricmc:fabric-loader:${project.property("loader_version")}")
     implementation("net.fabricmc:fabric-language-kotlin:${project.property("kotlin_loader_version")}")
