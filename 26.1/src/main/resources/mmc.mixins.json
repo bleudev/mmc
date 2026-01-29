@@ -6,7 +6,8 @@
   "mixins": [
   ],
   "client": [
-    "ModMenuMixin"
+    "ModMenuMixin",
+    "accessor.ChatScreenAccessor"
   ],
   "injectors": {
     "defaultRequire": 1

@@ -1,5 +1,6 @@
 package com.bleudev.mmc.custom.key
 
+import com.bleudev.mmc.compat.suggestions
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper
 import net.minecraft.client.KeyMapping
 import net.minecraft.client.Minecraft
@@ -11,6 +12,8 @@ class OpenConfigCommandKey: AbstractMmcKey() {
     }
 
     override fun onPressed(mc: Minecraft) {
-        mc.setScreen(ChatScreen("/config "))
+        val screen = ChatScreen("/config ")
+        mc.setScreen(screen)
+        screen.suggestions.showSuggestions(true)
     }
 }

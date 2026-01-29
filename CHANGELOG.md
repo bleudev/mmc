@@ -1,5 +1,8 @@
+## Bug fixes
+[/] Use of keybind which opens chat with `/config` command don't make suggestions appear (bleudev [#12](https://github.com/bleudev/mmc/pull/12))
+
 ## Small changes
-[+] Add modrinth and donate links to mod menu
+[+] Add modrinth and donate links to mod menu (bleudev)
 
 ## Version changes
 ### Dev
