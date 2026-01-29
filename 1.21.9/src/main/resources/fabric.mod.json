@@ -25,7 +25,11 @@
   "icon": "assets/mmc/icon.png",
   "custom": {
     "modmenu": {
-      "parent": "modmenu"
+      "parent": "modmenu",
+      "links": {
+        "modmenu.modrinth": "https://modrinth.com/mod/modmenuc",
+        "modmenu.donate": "https://donationalerts.com/r/bleuyt"
+      }
     }
   },
 
