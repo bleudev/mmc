@@ -2,7 +2,7 @@ import java.nio.file.Files
 import java.nio.file.Path
 
 plugins {
-    kotlin("jvm") version "2.3.0"
+    kotlin("jvm") version "2.3.10"
     kotlin("plugin.serialization") version "2.3.0"
     id("net.fabricmc.fabric-loom") version "1.15.4" apply false
     id("maven-publish")
