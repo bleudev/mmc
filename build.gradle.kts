@@ -15,22 +15,26 @@ repositories {
 
 val gversion = project.findProperty("general_version") as String
 
-fun configure(v: String, maxExv: String, snapshot: Int = -1) {
-    var changelog: String = Files.readString(Path.of(uri(project.file("CHANGELOG.md").getAbsolutePath())))
-    var mv = v
-    if (snapshot > -1)
-        mv += "-snapshot-$snapshot"
-    project(":$v") {
+private val changelog = project.file("CHANGELOG.md").readText()
+
+private fun prConfigure(projectAndMinecraftVersions: Pair<String, String>, maxExclusiveVersion: String) {
+    val versionSuffix = if (project.findProperty("beta_mode") == "true") "_beta" else ""
+    project(":${projectAndMinecraftVersions.first}") {
         extensions.extraProperties.apply {
+            set("minecraft_version", projectAndMinecraftVersions.second)
+            set("max_exc_version", maxExclusiveVersion)
+            set("mod_version", "${project.findProperty("general_version")}$versionSuffix+${projectAndMinecraftVersions.first}")
             set("changelog", changelog)
-            set("minecraft_version", mv)
-            set("max_exc_version", maxExv)
-            set("mod_version", "$gversion+$v")
         }
     }
 }
+private fun prConfigure(v: String, maxExv: String) = prConfigure(v to v, maxExv)
 
-configure("1.20", "1.21")
-configure("1.21", "1.21.9")
-configure("1.21.9", "1.21.12")
-configure("26.1", "26.2", 4)
+private fun String.snapshot(num: Int): Pair<String, String> = this to "$this-snapshot-$num"
+private fun String.pre(num: Int): Pair<String, String> = this to "$this-pre-$num"
+private fun String.rc(num: Int): Pair<String, String> = this to "$this-rc-$num"
+
+prConfigure("1.20", "1.21")
+prConfigure("1.21", "1.21.9")
+prConfigure("1.21.9", "1.21.12")
+prConfigure("26.1".pre(2), "26.2")
