@@ -99,7 +99,10 @@ modrinth {
     versionNumber.set(project.version as String)
     versionType.set("release")
     uploadFile.set(tasks.jar)
-    additionalFiles.add(tasks.kotlinSourcesJar)
+    additionalFiles {
+        sourcesJar(tasks.kotlinSourcesJar)
+        javadocJar(tasks.named("javadocJar"))
+    }
     changelog.set(project.property("changelog") as String)
     gameVersions.addAll("26.1")
     loaders.add("fabric")

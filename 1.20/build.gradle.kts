@@ -100,7 +100,10 @@ modrinth {
     versionNumber.set(project.version as String)
     versionType.set("release")
     uploadFile.set(tasks.remapJar)
-    additionalFiles.add(tasks.remapSourcesJar)
+    additionalFiles {
+        sourcesJar(tasks.remapSourcesJar)
+        javadocJar(tasks.named("javadocJar"))
+    }
     changelog.set(project.property("changelog") as String)
     gameVersions.addAll("1.20", "1.20.1", "1.20.2", "1.20.3", "1.20.4", "1.20.5", "1.20.6")
     loaders.add("fabric")
