@@ -1,5 +1,4 @@
-import java.nio.file.Files
-import java.nio.file.Path
+@file:Suppress("unused")
 
 plugins {
     kotlin("jvm") version "2.3.0"
@@ -37,4 +36,4 @@ private fun String.rc(num: Int): Pair<String, String> = this to "$this-rc-$num"
 prConfigure("1.20", "1.21")
 prConfigure("1.21", "1.21.9")
 prConfigure("1.21.9", "1.21.12")
-prConfigure("26.1".pre(2), "26.2")
+prConfigure("26.1", "26.2")
