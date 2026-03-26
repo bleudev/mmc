@@ -5,8 +5,8 @@ plugins {
     kotlin("jvm")
     kotlin("plugin.serialization")
     id("net.fabricmc.fabric-loom")
-    id("maven-publish")
     id("com.modrinth.minotaur")
+    id("maven-publish")
 }
 
 version = project.property("mod_version") as String
