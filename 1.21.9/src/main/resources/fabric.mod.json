@@ -45,6 +45,6 @@
     "fabric-language-kotlin": ">=${kotlin_loader_version}",
     "fabric": ">=${fabric_version}",
     "modmenu": ">=${modmenu_version}",
-    "minecraft": ">=${minecraft_version} <${max_exc_version}"
+    "minecraft": ">=${min_mc_version} <${max_exc_version}"
   }
 }
