@@ -1,7 +1,18 @@
-# 1.5
-## Version changes
-- 26.1
-- Fabric Language Kotlin `1.13.8+kotlin.2.3.0 -> 1.13.10+kotlin.2.3.20`
-- [DEV] Fabric loom `1.15.3 -> 1.15.5`
-- [DEV] Gradle `9.3.0 -> 9.4.0`
-- [DEV] Update to Kotlin 2.3.20
+# 1.6
+- 26.2-pre-2 (bleudev #30)
+- End of support for 1.20 (soon 1.21-1.21.11's support also will be ended) (bleudev #30)
+- Update to Fabric Loader 0.19.2 (bleudev #30)
+- Update Mod Menu and Fabric API versions (bleudev #30)
+  - 26.2
+    - FAPI: `0.150.1`
+    - MM: `20.0.0-alpha.1`
+  - 26.1
+    - FAPI: `0.150.0`
+    - MM: `18.0.0-beta.1`
+  - 1.21.9
+    - FAPI: `0.134.1`
+    - MM: `16.0.1`
+  - 1.21
+    - FAPI: `0.102.0`
+    - MM: `11.0.4`
+- \[DEV] New system for dependencies in `fabric.mod.json` (bleudev #30)
