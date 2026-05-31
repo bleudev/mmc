@@ -1,0 +1,9 @@
+{
+    "commands.mmc.config.error.last.null": "Перед использованием памяти откройте конфиг хотя бы одного мода.",
+    "commands.mmc.config.error.unknown.mod": "Неизвестный мод. Проверьте правильность айди.",
+    "commands.mmc.config.error.unknown.config": "Указанный мод не имеет конфига в Mod Menu.",
+    "key.category.mmc.general": "Mod Menu Command",
+    "key.mmc.open_mod_list": "Открыть меню модов",
+    "key.mmc.open_config_command": "Открыть чат с командой /config",
+    "modmenu.descriptionTranslation.mmc": "Мод, который добавляет команды /mods и /config для открытия списка модов или определённого конфига"
+}
