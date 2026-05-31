@@ -51,7 +51,7 @@ private fun String.snapshot(num: Int): McInformation = McInformation.snapshot(th
 private fun String.pre(num: Int): McInformation = McInformation.pre(this, num)
 private fun String.rc(num: Int): McInformation = McInformation.rc(this, num)
 
-prConfigure("1.21", "1.21.9", d().fabric("0.102.0+1.21").modmenu("11.0.3"))
-prConfigure("1.21.9", "1.21.12", d().fabric("0.134.0+1.21.9").modmenu("16.0.0-rc.1"))
-prConfigure("26.1", "26.2", d().fabric("0.144.3+26.1").modmenu("18.0.0-alpha.8"))
+prConfigure("1.21", "1.21.9", d().fabric("0.102.0+1.21").modmenu("11.0.4"))
+prConfigure("1.21.9", "1.21.12", d().fabric("0.134.1+1.21.9").modmenu("16.0.1"))
+prConfigure("26.1", "26.2", d().fabric("0.150.0+26.1.2").modmenu("18.0.0-beta.1"))
 prConfigure("26.2".pre(2), "26.2", d().fabric("0.150.1+26.2").modmenu("20.0.0-alpha.1"))
