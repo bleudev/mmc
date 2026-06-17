@@ -4,9 +4,9 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 plugins {
     kotlin("jvm")
     kotlin("plugin.serialization")
-    id("fabric-loom")
-    id("maven-publish")
+    id("net.fabricmc.fabric-loom")
     id("com.modrinth.minotaur")
+    id("maven-publish")
 }
 
 version = project.property("mod_version") as String
@@ -17,7 +17,7 @@ base {
     archivesName.set(project.property("archives_base_name") as String)
 }
 
-val targetJavaVersion = 17
+val targetJavaVersion = 25
 java {
     toolchain.languageVersion = JavaLanguageVersion.of(targetJavaVersion)
     // Loom will automatically attach sourcesJar to a RemapSourcesJar task and to the "build" task
@@ -46,18 +46,17 @@ repositories {
 dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.9.0")
 
-    minecraft("com.mojang:minecraft:${project.property("minecraft_version")}")
-    mappings(loom.officialMojangMappings())
-    modImplementation("net.fabricmc:fabric-loader:${project.property("loader_version")}")
-    modImplementation("net.fabricmc:fabric-language-kotlin:${project.property("kotlin_loader_version")}")
+    minecraft("com.mojang:minecraft:${project.property("mc_version")}")
+    implementation("net.fabricmc:fabric-loader:${project.property("loader_version")}")
+    implementation("net.fabricmc:fabric-language-kotlin:${project.property("kotlin_loader_version")}")
 
-    modImplementation("net.fabricmc.fabric-api:fabric-api:${project.property("fabric_version")}")
-    modImplementation("maven.modrinth:modmenu:${project.property("modmenu_version")}")
+    implementation("net.fabricmc.fabric-api:fabric-api:${project.property("fabric_version")}")
+    implementation("maven.modrinth:modmenu:${project.property("modmenu_version")}")
 }
 
 tasks.processResources {
     inputs.property("version", project.version)
-    inputs.property("minecraft_version", project.property("minecraft_version"))
+    inputs.property("min_mc_version", project.property("min_mc_version"))
     inputs.property("max_exc_version", maxExcVersion)
     inputs.property("loader_version", project.property("loader_version"))
     inputs.property("fabric_version", project.property("fabric_version"))
@@ -66,7 +65,7 @@ tasks.processResources {
 
     filesMatching("fabric.mod.json") {
         expand("version" to project.version,
-            "minecraft_version" to project.property("minecraft_version")!!,
+            "min_mc_version" to project.property("min_mc_version")!!,
             "max_exc_version" to maxExcVersion,
             "loader_version" to project.property("loader_version")!!,
             "fabric_version" to project.property("fabric_version")!!,
@@ -98,11 +97,14 @@ modrinth {
     token.set(System.getenv("MODRINTH_TOKEN"))
     projectId.set("modmenuc")
     versionNumber.set(project.version as String)
-    versionType.set("release")
-    uploadFile.set(tasks.remapJar)
-    additionalFiles.add(tasks.remapSourcesJar)
+    versionType.set("beta")
+    uploadFile.set(tasks.jar)
+    additionalFiles {
+        sourcesJar(tasks.kotlinSourcesJar)
+        javadocJar(tasks.named("javadocJar"))
+    }
     changelog.set(project.property("changelog") as String)
-    gameVersions.addAll("1.20", "1.20.1", "1.20.2", "1.20.3", "1.20.4", "1.20.5", "1.20.6")
+    gameVersions.addAll("26.2-pre-2")
     loaders.add("fabric")
     dependencies {
         required.project("fabric-api")
@@ -111,7 +113,6 @@ modrinth {
     }
 }
 
-// configure the maven publication
 publishing {
     publications {
         create<MavenPublication>("mavenJava") {

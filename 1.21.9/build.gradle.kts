@@ -5,8 +5,8 @@ plugins {
     kotlin("jvm")
     kotlin("plugin.serialization")
     id("fabric-loom")
-    id("maven-publish")
     id("com.modrinth.minotaur")
+    id("maven-publish")
 }
 
 version = project.property("mod_version") as String
@@ -46,7 +46,7 @@ repositories {
 dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.9.0")
 
-    minecraft("com.mojang:minecraft:${project.property("minecraft_version")}")
+    minecraft("com.mojang:minecraft:${project.property("mc_version")}")
     mappings(loom.officialMojangMappings())
     modImplementation("net.fabricmc:fabric-loader:${project.property("loader_version")}")
     modImplementation("net.fabricmc:fabric-language-kotlin:${project.property("kotlin_loader_version")}")
@@ -57,7 +57,7 @@ dependencies {
 
 tasks.processResources {
     inputs.property("version", project.version)
-    inputs.property("minecraft_version", project.property("minecraft_version"))
+    inputs.property("min_mc_version", project.property("min_mc_version"))
     inputs.property("max_exc_version", maxExcVersion)
     inputs.property("loader_version", project.property("loader_version"))
     inputs.property("fabric_version", project.property("fabric_version"))
@@ -66,7 +66,7 @@ tasks.processResources {
 
     filesMatching("fabric.mod.json") {
         expand("version" to project.version,
-            "minecraft_version" to project.property("minecraft_version")!!,
+            "min_mc_version" to project.property("min_mc_version")!!,
             "max_exc_version" to maxExcVersion,
             "loader_version" to project.property("loader_version")!!,
             "fabric_version" to project.property("fabric_version")!!,
@@ -100,7 +100,10 @@ modrinth {
     versionNumber.set(project.version as String)
     versionType.set("release")
     uploadFile.set(tasks.remapJar)
-    additionalFiles.add(tasks.remapSourcesJar)
+    additionalFiles {
+        sourcesJar(tasks.remapSourcesJar)
+        javadocJar(tasks.named("javadocJar"))
+    }
     changelog.set(project.property("changelog") as String)
     gameVersions.addAll("1.21.9", "1.21.10", "1.21.11")
     loaders.add("fabric")
