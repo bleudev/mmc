@@ -97,14 +97,14 @@ modrinth {
     token.set(System.getenv("MODRINTH_TOKEN"))
     projectId.set("modmenuc")
     versionNumber.set(project.version as String)
-    versionType.set("beta")
+    versionType.set("release")
     uploadFile.set(tasks.jar)
     additionalFiles {
         sourcesJar(tasks.kotlinSourcesJar)
         javadocJar(tasks.named("javadocJar"))
     }
     changelog.set(project.property("changelog") as String)
-    gameVersions.addAll("26.2-pre-2")
+    gameVersions.addAll("26.2")
     loaders.add("fabric")
     dependencies {
         required.project("fabric-api")
