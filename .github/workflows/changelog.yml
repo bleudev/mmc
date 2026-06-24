@@ -7,10 +7,10 @@ jobs:
     permissions:
       contents: write
     steps:
-      - uses: actions/checkout@<sha>
+      - uses: actions/checkout@v7.0.0
         with:
           fetch-depth: 0
-      - uses: builtbyadam/changelog-from-commits@v1
+      - uses: builtbyadam/changelog-from-commits@v1.0.0
         with:
           from-ref: ""
           to-ref: HEAD
