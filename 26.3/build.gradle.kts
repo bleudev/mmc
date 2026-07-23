@@ -104,7 +104,7 @@ modrinth {
         javadocJar(tasks.named("javadocJar"))
     }
     changelog.set(project.property("changelog") as String)
-    gameVersions.addAll("26.2")
+    gameVersions.addAll("26.3-snapshot-5")
     loaders.add("fabric")
     dependencies {
         required.project("fabric-api")
