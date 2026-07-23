@@ -97,7 +97,7 @@ modrinth {
     token.set(System.getenv("MODRINTH_TOKEN"))
     projectId.set("modmenuc")
     versionNumber.set(project.version as String)
-    versionType.set("release")
+    versionType.set("alpha")
     uploadFile.set(tasks.jar)
     additionalFiles {
         sourcesJar(tasks.kotlinSourcesJar)
