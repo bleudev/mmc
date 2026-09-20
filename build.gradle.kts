@@ -3,7 +3,7 @@
 plugins {
     kotlin("jvm") version "2.4.20"
     kotlin("plugin.serialization") version "2.4.20"
-    id("net.fabricmc.fabric-loom") version "1.15.5" apply false
+    id("net.fabricmc.fabric-loom") version "1.18.2" apply false
     id("com.modrinth.minotaur") version "2.9.0" apply false
     id("maven-publish")
 }
