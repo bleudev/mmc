@@ -106,10 +106,11 @@ modrinth {
     changelog.set(project.property("changelog") as String)
     gameVersions.addAll("26.2")
     loaders.add("fabric")
+    environment.set("client_only")
     dependencies {
-        required.project("fabric-api")
-        required.project("modmenu")
-        required.project("fabric-language-kotlin")
+        required.version("fabric-api", project.property("fabric_version") as String)
+        required.version("modmenu", project.property("modmenu_version") as String)
+        required.version("fabric-language-kotlin", project.property("kotlin_loader_version") as String)
     }
 }
 

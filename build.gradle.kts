@@ -12,8 +12,6 @@ repositories {
     mavenCentral()
 }
 
-val gversion = project.findProperty("general_version") as String
-
 private val changelog = project.file("CHANGELOG.md").readText()
 
 private data class McInformation(val base: String, val dependency: String, val fabricModJson: String) {
@@ -37,7 +35,7 @@ private fun prConfigure(projectAndMinecraftVersions: McInformation, maxExclusive
             set("mc_version", projectAndMinecraftVersions.dependency)
             set("min_mc_version", projectAndMinecraftVersions.fabricModJson)
             set("max_exc_version", maxExclusiveVersion)
-            set("mod_version", "$gversion$versionSuffix+${projectAndMinecraftVersions.base}")
+            set("mod_version", "${project.findProperty("general_version")}$versionSuffix+${projectAndMinecraftVersions.base}")
             set("changelog", changelog)
 
             if (deps.dFabric != null) set("fabric_version", deps.dFabric)
