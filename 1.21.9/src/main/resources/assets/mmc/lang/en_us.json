@@ -1,9 +1,0 @@
-{
-    "commands.mmc.config.error.last.null": "Before using memory, open the config of at least one mod.",
-    "commands.mmc.config.error.unknown.mod": "Unknown mod id. Check again that id is correct.",
-    "commands.mmc.config.error.unknown.config": "Specified mod hasn't config in Mod Menu.",
-    "key.category.mmc.general": "Mod Menu Command",
-    "key.mmc.open_mod_list": "Open mod list",
-    "key.mmc.open_config_command": "Open chat with /config command",
-    "modmenu.descriptionTranslation.mmc": "A mod which provides /mods and /config commands to open mods list or specific mod config"
-}
