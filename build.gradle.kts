@@ -1,7 +1,7 @@
 @file:Suppress("unused")
 
 plugins {
-    kotlin("jvm") version "2.4.20"
+    kotlin("jvm") version "2.4.21"
     kotlin("plugin.serialization") version "2.4.20"
     id("net.fabricmc.fabric-loom") version "1.18.2" apply false
     id("com.modrinth.minotaur") version "2.10.0" apply false
